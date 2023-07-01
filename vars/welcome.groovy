@@ -1,3 +1,3 @@
-def call (String name, Sting name2) {
+def call (String name, String name2) {
     echo "HI, ${name} and ${name2}"
 }
