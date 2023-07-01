@@ -1,3 +1,3 @@
-def call (Stiring name) {
+def call (String name) {
     echo "HI, $(name)"
 }
