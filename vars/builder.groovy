@@ -1,21 +1,13 @@
 import org.jenkinsci.plugins.workflow.cps.CpsScript
-import org.jenkinsci.plugins.docker.workflow.Docker
+import org.jenkinsci.plugins.docker.workflow.*
 
-def call(script) {
-    // Create the image to use in this build instead of using a parameter
-    def docker = script.getClass().getClassLoader().loadClass("org.jenkinsci.plugins.docker.workflow.Docker")
-        .getConstructor(CpsScript.class).newInstance(script)
-    def image = docker.image("praqma/native-scons")
-    return new Builder(script, image)
-}
-
-class Builder {
+class DockerBuilder {
     CpsScript script
-    Docker image
+    Docker docker
 
-    Builder(CpsScript script, Docker image) {
+    DockerBuilder(CpsScript script) {
         this.script = script
-        this.image = image
+        this.docker = new Docker(script)
     }
 
     def buildAndRun(String imageName, String containerName, String dockerfilePath, String contextPath, String port = '', String containerPort = '') {
