@@ -1,9 +1,9 @@
-def call(String name, String name2, String containername, String port = "", String port = "", String mountvolume = "") {
+def call(String name, String name2, String containername, String port = "", String port1 = "", String mountvolume = "") {
     script {
         def dockerRunCommand = "docker run -d --name ${containername}"
         
         if (port) {
-            dockerRunCommand += " -p ${port}:${port}"
+            dockerRunCommand += " -p ${port}:${port1}"
         }
         if (mountvolume) {
             dockerRunCommand += "-v ${mountvolume}"
