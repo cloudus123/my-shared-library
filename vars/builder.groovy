@@ -1,5 +1,6 @@
+package org.jenkinsci.plugins.docker.workflow
+
 import org.jenkinsci.plugins.workflow.cps.CpsScript
-import org.jenkinsci.plugins.docker.workflow.*
 
 class DockerBuilder implements Serializable {
     CpsScript script
