@@ -6,7 +6,7 @@ def call(String name, String name2, String containername, String port = "", Stri
             dockerRunCommand += " -p ${port}:${port1}"
         }
         if (mountvolume) {
-            dockerRunCommand += "-v ${mountvolume}"
+            dockerRunCommand += " -v ${mountvolume}"
         }
         dockerRunCommand += " ${name}"
         
