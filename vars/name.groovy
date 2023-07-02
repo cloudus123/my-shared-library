@@ -2,7 +2,7 @@ def call(String name, String name2, String containername, String port = "", Stri
     script {
         def dockerRunCommand = "docker run -d --name ${containername}"
         
-        if (port) {
+        if (port && port1) {
             dockerRunCommand += " -p ${port}:${port1}"
         }
         if (mountvolume) {
