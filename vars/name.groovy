@@ -1,4 +1,4 @@
-def call(String name, String pathtodocker, String contextPath, String containername, String port = "", String port1 = "", String mountvolume = "") {
+def call(String name, String pathtodocker, String contextPath, String containername, String port = "", String port1 = "") {
     script {
         
         sh """
@@ -9,9 +9,6 @@ def call(String name, String pathtodocker, String contextPath, String containern
         
         if (port && port1) {
             dockerRunCommand += " -p ${port}:${port1}"
-        }
-        if (mountvolume) {
-            dockerRunCommand += " -v ${mountvolume}"
         }
         dockerRunCommand += " ${name}"
     }
