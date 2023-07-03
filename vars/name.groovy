@@ -1,4 +1,4 @@
-def call(String name, String pathtodocker, String contextPath, String containername, String port = "", String port1 = "") {
+def call(String name, String pathtodocker, String contextPath, String containername, String port = "", String containerport = "") {
     script {
         def dockerRunCommand = "docker run -d --name ${containername}"
         
