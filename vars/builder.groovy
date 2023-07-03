@@ -6,7 +6,7 @@ def image_build_and_run(String imageName, String containerName, String dockerfil
     }
     stage("Run container image") {
 		steps {
-        sh "docker run -d ${publishOption} --name ${containerName} ${imageName}"
+        sh "docker run -d --name ${containerName} ${imageName}"
 		}
     }
 }
