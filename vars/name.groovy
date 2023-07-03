@@ -2,7 +2,7 @@ def call(String name, String pathtodocker, String contextPath, String containern
     script {
         def dockerRunCommand = "docker run -d --name ${containername}"
         
-        if (port && port1) {
+        if (port && containerport) {
             dockerRunCommand += " -p ${port}:${containerport}"
         }
         dockerRunCommand += " ${name}"
