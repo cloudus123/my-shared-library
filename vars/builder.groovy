@@ -1,4 +1,4 @@
-def image_build_and_run(String imageName, String containerName, String dockerfilePath, String contextPath) {
+def call(String imageName, String containerName, String dockerfilePath, String contextPath) {
     stage("Build Docker Image") {
 		steps {
         sh "docker build -t ${imageName} -f ${dockerfilePath} ${contextPath}"
