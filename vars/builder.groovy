@@ -1,4 +1,5 @@
 def call(String imageName, String containerName, String dockerfilePath, String contextPath) {
+   pipeline{
 	stages {
 	  stage("Build Docker Image") {
 		steps {
@@ -11,4 +12,5 @@ def call(String imageName, String containerName, String dockerfilePath, String c
 		}
     	   }
 	}
+    }
 }
