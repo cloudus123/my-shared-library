@@ -2,7 +2,7 @@ def call(String name, String pathtodocker, String contextPath, String ECRurl) {
     script {
         sh """
             docker build -t ${name} -f ${pathtodocker} ${contextPath}
-            docker tag ${name} ${ECRurl}/${name}
+            docker tag ${name} ${ECRurl}/"${name}"
 	    image_name= $(docker image ls | grep -i ${ECRurl}/${name} | awk '{print$3}')
 	    trivy_output=$(trivy image "$image_name" --format json)
 	    critical_vulns=$(echo "$trivy_output" | grep -i "CRITICAL: 0" | wc -l)
